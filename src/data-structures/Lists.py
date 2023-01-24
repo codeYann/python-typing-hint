@@ -1,15 +1,6 @@
 from typing import List
 
 
-def summation(numbers: List[int]) -> int:
-    if len(numbers) <= 1:
-        return numbers[0]
-    acc: int = 0
-    for i in numbers:
-        acc += i
-    return acc
-
-
 class Person:
     def __init__(self, name: str, age: int, height: float) -> None:
         self.name = name
@@ -20,13 +11,24 @@ class Person:
         return f"Hi! ${self.name}"
 
 
+# To use list typing hint you need to specify a type for whole list
+# You also can you a class type for a list
 def age_average(people: List[Person]) -> float:
-    if len(people) == 1:
-        return float(people[0].age)
+    if len(people) == 0:
+        return 0
     acc: int = 0
     for person in people:
         acc += person.age
     return acc / len(people)
+
+
+def summation(numbers: List[int]) -> int:
+    if len(numbers) <= 1:
+        return numbers[0]
+    acc: int = 0
+    for i in numbers:
+        acc += i
+    return acc
 
 
 def main() -> None:
